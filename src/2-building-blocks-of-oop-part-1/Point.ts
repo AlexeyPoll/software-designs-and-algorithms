@@ -2,20 +2,12 @@ export class Point {
     private x: number;
     private y: number;
 
-    public constructor();
     public constructor(x: number, y: number);
-    public constructor(...args: [number?, number?]) {
+    public constructor(...args: [number, number]) {
         const [ x, y ] = args;
-
-        if (args.length === 0) {
-            this.x = 0;
-            this.y = 0;
-        } 
         
-        if (args.length === 2) {
-            this.x = x;
-            this.y = y;
-        }
+        this.x = x || 0;
+        this.y = y || 0;
     }
 
     private calculateDistanceTo(x: number, y: number): number {
@@ -28,10 +20,9 @@ export class Point {
         return `(${this.x}, ${this.y})`;
     }
 
-    public distance(): number;
     public distance(other: Point): number;
     public distance(x: number, y: number): number;
-    public distance(...args: any[]): number {
+    public distance(...args: any[]) {
         if (args.length === 0) {
             return this.calculateDistanceTo(0, 0);
         }
