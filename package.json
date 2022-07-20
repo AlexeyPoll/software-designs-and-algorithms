@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
+    "start:3-building-blocks-of-oop-part-2": "ts-node src/3-building-blocks-of-oop-part-2/usage.ts",
     "test:2-building-blocks-of-oop-part-1": "jest test/2-building-blocks-of-oop-part-1",
+    "test:3-building-blocks-of-oop-part-2": "jest test/3-building-blocks-of-oop-part-2",
     "test": "jest"
   },
   "author": "",
