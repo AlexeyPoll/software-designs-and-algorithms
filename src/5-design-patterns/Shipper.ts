@@ -1,11 +1,11 @@
-import { Letter, Package, Shipment } from "./Shipment";
+import { IShipment, Letter, Package } from "./Shipment";
 
-export interface Shipper {
-    getCost(shipment: Shipment): number;
+export interface IShipper {
+    getCost(shipment: IShipment): number;
 }
 
-export class AirEastShipper implements Shipper {
-    getCost(shipment: Shipment): number {
+export class AirWestShipper implements IShipper {
+    getCost(shipment: IShipment): number {
         if (shipment instanceof Letter) return 0.39 * shipment.getWeight();
         if (shipment instanceof Package) return 0.25 * shipment.getWeight();
 
@@ -13,8 +13,8 @@ export class AirEastShipper implements Shipper {
     }
 }
 
-export class PacificParcelShipper implements Shipper {
-    getCost(shipment: Shipment): number {
+export class PacificParcelShipper implements IShipper {
+    getCost(shipment: IShipment): number {
         if (shipment instanceof Letter) return 0.51 * shipment.getWeight();
         if (shipment instanceof Package) return 0.19 * shipment.getWeight();
 
@@ -22,8 +22,8 @@ export class PacificParcelShipper implements Shipper {
     }
 }
 
-export class ChicagoSprintShipper implements Shipper {
-    getCost(shipment: Shipment): number {
+export class ChicagoSprintShipper implements IShipper {
+    getCost(shipment: IShipment): number {
         if (shipment instanceof Letter) return 0.42 * shipment.getWeight();
         if (shipment instanceof Package) return 0.20 * shipment.getWeight();
 
